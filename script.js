@@ -14,8 +14,8 @@ function onSuccess(position) {
   fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}%2C${longitude}&key=3fa887bb1e70463391cbfe90db3f862b`)
   .then(response => response.json()).then(result => {
     let allDetails = result.results[0].components;
-    let {county ,state_district, state, country, postcode} = allDetails;
-    button.innerText = `${county}, ${state_district}, ${state}, ${country}, ${postcode}`;
+    let {state_district, state, country, postcode} = allDetails;
+    button.innerText = `${state_district}, ${state}, ${country}, ${postcode}`;
   });
 
 }
@@ -29,3 +29,4 @@ function onError(error) {
   }
   button.setAttribute("disabled", "true");
 }
+
